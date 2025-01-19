@@ -56,6 +56,7 @@ if($error == "si"){
                       <select class="js-example-basic-single" style="width:100%" name="idioma">
                         <option value="EN">English</option>
                         <option value="ES">Spanish</option>
+                        <option value="FR">Français</option>
                       </select>
                     </div>
                   <div class="text-center">
