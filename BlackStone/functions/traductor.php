@@ -1,184 +1,506 @@
-
 <?php
+session_start();
 
-function lang($sentencia){
+function lang($sentencia) {
+    $translations = [
+        'EN' => [
+            'Edit asset' => 'Edit asset',
+            'Objectives details' => 'Objectives details',
+            'At the moment we will have to manually insert a graphic or image.' => 'At the moment we will have to manually insert a graphic or image.',
+            'Delete' => 'Delete',
+            'Vulnerability images' => 'Vulnerability images',
+            'Manage vulnerabilities' => 'Manage vulnerabilities',
+            'Search Vulnerabilities...' => 'Search Vulnerabilities...',
+            'Order' => 'Order',
+            'Add vulns' => 'Add vulns',
+            'Add image' => 'Add image',
+            'Edit values' => 'Edit values',
+            'Vulnerabilities associated with' => 'Vulnerabilities associated with',
+            'Are you interested in cybersecurity?' => 'Are you interested in cybersecurity?',
+            'Go now' => 'Go now',
+            'Visit all my links!' => 'Visit all my links!',
+            'Report Objectives' => 'Report Objectives',
+            'Add objective' => 'Add objective',
+            'Add objectives' => 'Add objectives',
+            'Objectives' => 'Objectives',
+            'Deadline' => 'Deadline',
+            'Saved vulnerability' => 'Saved vulnerability',
+            'Account settings' => 'Account settings',
+            'System Member' => 'System Member',
+            'Dashboard' => 'Dashboard',
+            'Navigation' => 'Navigation',
+            'Search Reports' => 'Search Reports',
+            'Profile' => 'Profile',
+            'Log out' => 'Log out',
+            'Settings' => 'Settings',
+            'Messages' => 'Messages',
+            'Now' => 'Now',
+            'Create New Report' => 'Create New Report',
+            'Vulnerabilities' => 'Vulnerabilities',
+            'Audited Client' => 'Audited Client',
+            'Auditors' => 'Auditors',
+            'Report' => 'Report',
+            'Reports' => 'Reports',
+            'Report Vulnerabilities' => 'Report Vulnerabilities',
+            'Vulns in database' => 'Vulns in database',
+            'Free Hacking reporting tool from ' => 'Free Hacking reporting tool from ',
+            'List of vulnerabilities' => 'List of vulnerabilities',
+            'List' => 'List',
+            'Description' => 'Description',
+            'Description image' => 'Description image',
+            'Criticality' => 'Criticality',
+            'Low' => 'Low',
+            'Medium' => 'Medium',
+            'High' => 'High',
+            'Very High' => 'Very High',
+            'Edit' => 'Edit',
+            'Remove' => 'Remove',
+            'Search vulnerabilities' => 'Search vulnerabilities',
+            'NIST calculator' => 'NIST calculator',
+            'Edit Vulnerability' => 'Edit Vulnerability',
+            'Effort' => 'Effort',
+            'Audit section' => 'Audit section',
+            'Internal audit' => 'Internal audit',
+            'External audit' => 'External audit',
+            'Wifi audit' => 'Wifi audit',
+            'Solution' => 'Solution',
+            'Recommendation for criticality table' => 'Recommendation for criticality table',
+            'Add vulnerability' => 'Add vulnerability',
+            'Delete vulnerability' => 'Delete vulnerability',
+            'Vulnerability removed from the system' => 'Vulnerability removed from the system',
+            'Return' => 'Return',
+            'Customers' => 'Customers',
+            'List of customers' => 'List of customers',
+            'Search customers' => 'Search customers',
+            'Name' => 'Name',
+            'Web page' => 'Web page',
+            'Logo' => 'Logo',
+            'Edit company' => 'Edit company',
+            'Links and subdomains' => 'Links and subdomains',
+            'Domain' => 'Domain',
+            'Email' => 'Email',
+            'Name and surname' => 'Name and surname',
+            'Phone' => 'Phone',
+            'Owner data' => 'Owner data',
+            'Organization' => 'Organization',
+            'Employee emails' => 'Employee emails',
+            'MX Records' => 'MX Records',
+            'Edit profile' => 'Edit profile',
+            'You have reached the search limit on your hunter.io plan' => 'You have reached the search limit on your hunter.io plan',
+            'Add client' => 'Add client',
+            'Your clients' => 'Your clients',
+            'List of reports' => 'List of reports',
+            'Search reports' => 'Search reports',
+            'Report name' => 'Report name',
+            'State' => 'State',
+            'Date' => 'Date',
+            'Finalized' => 'Finalized',
+            'In process' => 'In process',
+            'Add report' => 'Add report',
+            'Delete company' => 'Delete company',
+            'Company removed from the system' => 'Company removed from the system',
+            'Save this web in .mhtml format and open it in Word to edit the report!!' => 'Save this web in .mhtml format and open it in Word to edit the report!!',
+            'Document name' => 'Document name',
+            'Customer name' => 'Customer name',
+            'Discharge date' => 'Discharge date',
+            'Edit report' => 'Edit report',
+            'Recommendations' => 'Recommendations',
+            'Recommendation' => 'Recommendation',
+            'Conclusions' => 'Conclusions',
+            'Proposals' => 'Proposals',
+            'Add' => 'Add',
+            'Section' => 'Section',
+            'Save' => 'Save',
+            'Client name' => 'Client name',
+            'Overview report' => 'Overview report',
+            'Delete report' => 'Delete report',
+            'Report removed from the system' => 'Report removed from the system',
+            'Recorded vulnerabilities' => 'Recorded vulnerabilities',
+            'Registered companies' => 'Registered companies',
+            'Reports made' => 'Reports made',
+            'Last two reports' => 'Last two reports',
+            'Date:' => 'Date:',
+            'Vulnerabilities found' => 'Vulnerabilities found',
+            'LEGAL WARNING' => 'LEGAL WARNING',
+            'This document contains confidential and proprietary information which is for the exclusive use of ' => 'This document contains confidential and proprietary information which is for the exclusive use of ',
+            'Unauthorized reproduction or use of this document is strictly prohibited.' => 'Unauthorized reproduction or use of this document is strictly prohibited.',
+            'CONTROL DOCUMENT' => 'CONTROL DOCUMENT',
+            'DOCUMENT:' => 'DOCUMENT:',
+            'NAME' => 'NAME',
+            'AUTHOR:' => 'AUTHOR:',
+            'CUSTOMER:' => 'CUSTOMER:',
+            'CONFIDENTIALITY STATEMENT' => 'CONFIDENTIALITY STATEMENT',
+            'This report contains information regarding possible security breaches of ' => 'This report contains information regarding possible security breaches of ',
+            'and their systems.' => 'and their systems.',
+            'recommends that special precautions be taken to' => 'recommends that special precautions be taken to',
+            ' protect the confidentiality of this document and the information contained in it.' => ' protect the confidentiality of this document and the information contained in it.',
+            'has maintained and secured a copy of this report for consultation by the' => 'has maintained and secured a copy of this report for consultation by the',
+            'All other copies of the report have been delivered to ' => 'All other copies of the report have been delivered to ',
+            'The security assessment' => 'The security assessment',
+            'it is an uncertain process, based on experiences, currently available information and known threats.' => 'it is an uncertain process, based on experiences, currently available information and known threats.',
+            'It must be understood that all information systems, by their nature, depend on human beings and are vulnerable in some degree.' => 'It must be understood that all information systems, by their nature, depend on human beings and are vulnerable in some degree.',
+            'This report' => 'This report',
+            'may recommend that' => 'may recommend that',
+            'use certain software or hardware products manufactured' => 'use certain software or hardware products manufactured',
+            'or maintained by other providers. BlackStone bases these recommendations on of your previous experience with the capabilities of these products. However, Blackstone cannot and should not guarantee that any particular product will perform as advertised by the seller.' => 'or maintained by other providers. BlackStone bases these recommendations on of your previous experience with the capabilities of these products. However, Blackstone cannot and should not guarantee that any particular product will perform as advertised by the seller.',
+            'INDEX' => 'INDEX',
+            '(GENERATE INDEX WITH WORD)' => '(GENERATE INDEX WITH WORD)',
+            'INTRODUCTION' => 'INTRODUCTION',
+            'During the tests, the activities that a real attacker would carry out are simulated, discovering the vulnerabilities, their level of risk, and generating recommendations that allow the client to carry out the remediation of these. Each section of this report details important aspects of how an attacker could use the vulnerability to compromise and gain unauthorized access to sensitive information. Are included In addition, guidelines that, when applied, will improve the levels of confidentiality, integrity and availability of the analyzed systems.' => 'During the tests, the activities that a real attacker would carry out are simulated, discovering the vulnerabilities, their level of risk, and generating recommendations that allow the client to carry out the remediation of these. Each section of this report details important aspects of how an attacker could use the vulnerability to compromise and gain unauthorized access to sensitive information. Are included In addition, guidelines that, when applied, will improve the levels of confidentiality, integrity and availability of the analyzed systems.',
+            'Vulnerability scans and ethical hacking tests were conducted by BlackStone\'s Red Team during the approved dates. The ethical hacking tests did not explicitly attempt to execute denial-of-service exploits and all of them were carried out without knowledge of users or passwords on the network.' => 'Vulnerability scans and ethical hacking tests were conducted by BlackStone\'s Red Team during the approved dates. The ethical hacking tests did not explicitly attempt to execute denial-of-service exploits and all of them were carried out without knowledge of users or passwords on the network.',
+            'OBJECTIVE' => 'OBJECTIVE',
+            'The objective of the security evaluation is to detect the existing security vulnerabilities in the analyzed systems in order to subsequently generate a report with the findings and recommendations that allow their remediation.' => 'The objective of the security evaluation is to detect the existing security vulnerabilities in the analyzed systems in order to subsequently generate a report with the findings and recommendations that allow their remediation.',
+            'SCOPE' => 'SCOPE',
+            'The evaluation carried out has focused on the objectives approved in the scope of the contract, which establishes:' => 'The evaluation carried out has focused on the objectives approved in the scope of the contract, which establishes:',
+            'Description activities' => 'Description activities',
+            'EXECUTIVE SUMMARY' => 'EXECUTIVE SUMMARY',
+            'TEST RESULTS' => 'TEST RESULTS',
+            'CONCLUSIONS' => 'CONCLUSIONS',
+            'RECOMMENDATIONS' => 'RECOMMENDATIONS',
+            'Infrastructure improvement proposals' => 'Infrastructure improvement proposals',
+            'Criticality table' => 'Criticality table',
+            'DOCUMENT CONTROL' => 'DOCUMENT CONTROL',
+            'Vulnerability' => 'Vulnerability',
+            'Amount' => 'Amount',
+            'Percentage' => 'Percentage',
+            'Critics' => 'Critics',
+            'Penetration Test Report for' => 'Penetration Test Report for',
+            'YOU CAN MAKE REPORTS ON AUDITS AND CERTIFICATION EXAMS WITH THE FREE REPORTING TOOL FOR KALI AND PARROT' => 'YOU CAN MAKE REPORTS ON AUDITS AND CERTIFICATION EXAMS WITH THE FREE REPORTING TOOL FOR KALI AND PARROT',
+            'You have to capture a screenshot of this graphic to insert it into Word.' => 'You have to capture a screenshot of this graphic to insert it into Word.'
+        ],
+        'ES' => [
+            'Edit asset' => 'Editar objetivo',
+            'Objectives details' => 'Detalles de los objetivos',
+            'At the moment we will have to manually insert a graphic or image.' => 'Por el momento deberemos insertar manualmente un gráfico o imagen.',
+            'Delete' => 'Eliminar',
+            'Vulnerability images' => 'Imágenes de vulnerabilidad',
+            'Manage vulnerabilities' => 'Gestionar vulnerabilidades',
+            'Search Vulnerabilities...' => 'Buscar Vulnerabilidades...',
+            'Order' => 'Orden',
+            'Add vulns' => 'Añadir vulns',
+            'Add image' => 'Añadir imagen',
+            'Edit values' => 'Editar valores',
+            'Vulnerabilities associated with' => 'Vulnerabilidades asociadas a',
+            'Are you interested in cybersecurity?' => 'Estás interesado en ciberseguridad?',
+            'Go now' => 'Ver ahora',
+            'Visit all my links!' => 'Visita todos mis links!',
+            'Report Objectives' => 'Objetivos de la auditoría',
+            'Add objective' => 'Añadir objetivo',
+            'Add objectives' => 'Añadir objetivos',
+            'Objectives' => 'Objetivos',
+            'Deadline' => 'Fecha de entrega',
+            'Saved vulnerability' => 'Vulnerabilidad guardada',
+            'Account settings' => 'Ajustes de cuenta',
+            'System Member' => 'Usuario de sistema',
+            'Dashboard' => 'Dashboard',
+            'Navigation' => 'Navegación',
+            'Search Reports' => 'Buscar Informes',
+            'Profile' => 'Perfil',
+            'Log out' => 'Cerrar sesión',
+            'Settings' => 'Ajustes',
+            'Messages' => 'Mensajes',
+            'Now' => 'Ahora',
+            'Create New Report' => 'Crear Nuevo Informe',
+            'Vulnerabilities' => 'Vulnerabilidades',
+            'Audited Client' => 'Clientes registrados',
+            'Auditors' => 'Auditores',
+            'Report' => 'Informe',
+            'Reports' => 'Informes',
+            'Report Vulnerabilities' => 'Vulnerabilidades reportadas',
+            'Vulns in database' => 'Vulns en base de datos',
+            'Free Hacking reporting tool from ' => 'Herramienta gratuita de reporting, creada por: ',
+            'List of vulnerabilities' => 'Listado de vulnerabilidades',
+            'List' => 'Listado',
+            'Description' => 'Descripción',
+            'Description image' => 'Descripción de la imágen',
+            'Criticality' => 'Criticidad',
+            'Low' => 'Baja',
+            'Medium' => 'Media',
+            'High' => 'Alta',
+            'Very High' => 'Muy Alta',
+            'Edit' => 'Editar',
+            'Remove' => 'Eliminar',
+            'Search vulnerabilities' => 'Buscar vulnerabilidades',
+            'NIST calculator' => 'Calculadora NIST',
+            'Edit Vulnerability' => 'Editar vulnerabilidad',
+            'Effort' => 'Esfuerzo',
+            'Audit section' => 'Sección auditoria',
+            'Internal audit' => 'Auditoría interna',
+            'External audit' => 'Auditoría externa',
+            'Wifi audit' => 'Auditoría wifi',
+            'Solution' => 'Solución',
+            'Recommendation for criticality table' => 'Recomendación para tabla de criticidad',
+            'Add vulnerability' => 'Añadir vulnerabilidad',
+            'Delete vulnerability' => 'Eliminar vulnerabilidad',
+            'Vulnerability removed from the system' => 'Vulnerabilidad eliminada del sistema',
+            'Return' => 'Volver',
+            'Customers' => 'Clientes',
+            'List of customers' => 'Listado de clientes',
+            'Search customers' => 'Buscar clientes',
+            'Name' => 'Nombre',
+            'Web page' => 'Página web',
+            'Logo' => 'Logo',
+            'Edit company' => 'Editar empresa',
+            'Links and subdomains' => 'Links y subdominios',
+            'Domain' => 'Dominio',
+            'Email' => 'Correo',
+            'Name and surname' => 'Nombre y apellidos',
+            'Phone' => 'Teléfono',
+            'Owner data' => 'Datos del propietario',
+            'Organization' => 'Organización',
+            'Employee emails' => 'Correos de empleados',
+            'MX Records' => 'Registros MX',
+            'Edit profile' => 'Editar perfil',
+            'You have reached the search limit on your hunter.io plan' => 'Ha alcanzado el límite de búsquedas en su plan de hunter.io',
+            'Add client' => 'Añadir cliente',
+            'Your clients' => 'Tus clientes',
+            'List of reports' => 'Lista de informes',
+            'Search reports' => 'Buscar informes',
+            'Report name' => 'Nombre del informe',
+            'State' => 'Estado',
+            'Date' => 'Fecha',
+            'Finalized' => 'Terminado',
+            'In process' => 'En proceso',
+            'Add report' => 'Añadir informe',
+            'Delete company' => 'Eliminar empresa',
+            'Company removed from the system' => 'Empresa eliminada del sistema',
+            'Save this web in .mhtml format and open it in Word to edit the report!!' => 'Guarda esta web en formato .mhtml y abrela en Word para editar el informe!!',
+            'Document name' => 'Nombre del documento',
+            'Customer name' => 'Nombre cliente',
+            'Discharge date' => 'Fecha de alta',
+            'Edit report' => 'Editar informe',
+            'Recommendations' => 'Recomendaciones',
+            'Recommendation' => 'Recomendación',
+            'Conclusions' => 'Conclusiones',
+            'Proposals' => 'Propuestas',
+            'Add' => 'Añadir',
+            'Section' => 'Sección',
+            'Save' => 'Guardar',
+            'Client name' => 'Nombre de cliente',
+            'Overview report' => 'Generar informe',
+            'Delete report' => 'Eliminar informe',
+            'Report removed from the system' => 'Informe eliminado del sistema',
+            'Recorded vulnerabilities' => 'Vulnerabilidades registradas',
+            'Registered companies' => 'Clientes dados de alta',
+            'Reports made' => 'Informes realizados',
+            'Last two reports' => 'Dos últimos informes',
+            'Date:' => 'Fecha:',
+            'Vulnerabilities found' => 'Vulnerabilidades encontradas',
+            'LEGAL WARNING' => 'AVISO LEGAL',
+            'This document contains confidential and proprietary information which is for the exclusive use of ' => 'Este documento contiene información confidencial y propietaria la cual es de uso exclusivo de ',
+            'Unauthorized reproduction or use of this document is strictly prohibited.' => 'La reproducción o uso no autorizado de este documento está totalmente prohibido.',
+            'CONTROL DOCUMENT' => 'CONTROL DE DOCUMENTO',
+            'DOCUMENT:' => 'DOCUMENTO:',
+            'NAME' => 'NOMBRE',
+            'AUTHOR:' => 'AUTOR:',
+            'CUSTOMER:' => 'CLIENTE:',
+            'CONFIDENTIALITY STATEMENT' => 'DECLARACIÓN DE CONFIDENCIALIDAD',
+            'This report contains information regarding possible security breaches of ' => 'Este informe contiene la información relativa a las posibles brechas de seguridad de ',
+            'and their systems.' => 'y sus sistemas.',
+            'recommends that special precautions be taken to' => 'recomienda que sean tomadas precauciones especiales para',
+            ' protect the confidentiality of this document and the information contained in it.' => ' proteger la confidencialidad de este documento y de la información contenida en él.',
+            'has maintained and secured a copy of this report for consultation by the' => 'ha mantenido y asegurado una copia de este informe para consulta por parte del',
+            'All other copies of the report have been delivered to ' => 'Todas las demás copias del informe se han entregado a ',
+            'The security assessment' => 'La evaluación de la seguridad',
+            'it is an uncertain process, based on experiences, currently available information and known threats.' => 'es un proceso incierto, basado en las experiencias, la información actualmente disponible y las amenazas conocidas.',
+            'It must be understood that all information systems, by their nature, depend on human beings and are vulnerable in some degree.' => 'Se debe entender que todos los sistemas de información, por su naturaleza dependen de los seres humanos y son vulnerables en cierto grado.',
+            'This report' => 'Este informe',
+            'may recommend that' => 'podrá recomendar que',
+            'use certain software or hardware products manufactured' => 'utilice ciertos productos de software o hardware fabricados',
+            'or maintained by other providers. BlackStone bases these recommendations on of your previous experience with the capabilities of these products. However, Blackstone cannot and should not guarantee that any particular product will perform as advertised by the seller.' => 'o mantenidas por otros proveedores. BlackStone  basa estas recomendaciones a partir de su experiencia previa con las capacidades de estos productos. Sin embargo, BlackStone no puede y no debe garantizar que un determinado producto funcionará según lo anunciado por el vendedor.',
+            'INDEX' => 'ÍNDICE',
+            '(GENERATE INDEX WITH WORD)' => '(GENERAR INDICE CON WORD)',
+            'INTRODUCTION' => 'INTRODUCCIÓN',
+            'During the tests, the activities that a real attacker would carry out are simulated, discovering the vulnerabilities, their level of risk, and generating recommendations that allow the client to carry out the remediation of these. Each section of this report details important aspects of how an attacker could use the vulnerability to compromise and gain unauthorized access to sensitive information. Are included In addition, guidelines that, when applied, will improve the levels of confidentiality, integrity and availability of the analyzed systems.' => 'Durante las pruebas se simulan las actividades que realizaría un atacante real, descubriendo las vulnerabilidades, su nivel de riesgo, y generando recomendaciones que permitan al cliente realizar la remediación de estas. En cada sección de este informe se detallan los aspectos importantes de la forma en que un atacante podría utilizar la vulnerabilidad para comprometer y obtener acceso no autorizado a información sensible. Se incluyen además directrices que al ser aplicadas mejoraran los niveles de confidencialidad, integridad y disponibilidad de los sistemas analizados.',
+            'Vulnerability scans and ethical hacking tests were conducted by BlackStone\'s Red Team during the approved dates. The ethical hacking tests did not explicitly attempt to execute denial-of-service exploits and all of them were carried out without knowledge of users or passwords on the network.' => 'Los análisis de vulnerabilidades y pruebas de hacking ético fueron realizados por el equipo de Red Team de BlackStone  durante las fechas aprobadas. Las pruebas de hacking ético no intentaron explícitamente la ejecución de exploits que implicaran denegación de servicio y todas ellas se realizaron sin conocimiento de usuarios o contraseñas en la red.',
+            'OBJECTIVE' => 'OBJETIVO',
+            'The objective of the security evaluation is to detect the existing security vulnerabilities in the analyzed systems in order to subsequently generate a report with the findings and recommendations that allow their remediation.' => 'El objetivo de la evaluación de seguridad es detectar las vulnerabilidades de seguridad existentes en los sistemas analizados para posteriormente generar un informe con los hallazgos y recomendaciones que permitan la remediación de estas.',
+            'SCOPE' => 'ALCANCE',
+            'The evaluation carried out has focused on the objectives approved in the scope of the contract, which establishes:' => 'La evaluación realizada se ha centrado en los objetivos aprobados en el alcance del contrato, en el cual se establece:',
+            'Description activities' => 'Descripción de actividades',
+            'EXECUTIVE SUMMARY' => 'RESUMEN EJECUTIVO',
+            'TEST RESULTS' => 'RESULTADO DE LAS PRUEBAS',
+            'CONCLUSIONS' => 'CONCLUSIONES',
+            'RECOMMENDATIONS' => 'RECOMENDACIONES',
+            'Infrastructure improvement proposals' => 'Propuestas de mejora sobre la infraestructura',
+            'Criticality table' => 'Tabla de criticidad',
+            'DOCUMENT CONTROL' => 'CONTROL DE DOCUMENTO',
+            'Vulnerability' => 'vulnerabilidad',
+            'Amount' => 'Cantidad',
+            'Percentage' => 'Porcentaje',
+            'Critics' => 'Críticas',
+            'Penetration Test Report for' => 'Informe de Pentesting para',
+            'YOU CAN MAKE REPORTS ON AUDITS AND CERTIFICATION EXAMS WITH THE FREE REPORTING TOOL FOR KALI AND PARROT' => 'PUEDES REALIZAR INFORMES DE AUDITORÍAS Y EXÁMENES DE CERTIFICACIONES CON LA HERRAMIENTA GRATUITA DE REPORTING PARA KALI Y PARROT',
+            'You have to capture a screenshot of this graphic to insert it into Word.' => 'Tienes que capturar pantalla de este gráfico para insertarlo dentro del Word.'
+        ],
+        'FR' => [
+            'Edit asset' => 'Editer Objectif',
+            'Objectives details' => 'Détails des Objectifs',
+            'At the moment we will have to manually insert a graphic or image.' => 'Pour le moment nous devrons insérer manuellement un graphique ou une image',
+            'Delete' => 'Supprimer',
+            'Vulnerability images' => 'Images de la vulnérabilité',
+            'Manage vulnerabilities' => 'Gérer les vulnérabilités',
+            'Search Vulnerabilities...' => 'Chercher une vulnérabilité',
+            'Order' => 'Ordre',
+            'Add vulns' => 'Ajouter une vulnérabilité',
+            'Add image' => 'Ajouter une image',
+            'Edit values' => 'Editer les valeurs',
+            'Vulnerabilities associated with' => 'Vulnérabilités associées à',
+            'Are you interested in cybersecurity?' => 'Es-tu intéressé par la cybersécurité ?',
+            'Go now' => 'Voir maintenant',
+            'Visit all my links!' => 'Visite mes liens!',
+            'Report Objectives' => 'Objectifs de l\'audit',
+            'Add objective' => 'Ajouter Objectif',
+            'Add objectives' => 'Ajouter des Objectifs',
+            'Objectives' => 'Objectifs',
+            'Deadline' => 'Date Limite',
+            'Saved vulnerability' => 'Vulnérabilité sauvegardée',
+            'Account settings' => 'Paramètres de compte',
+            'System Member' => 'Utilisateur',
+            'Dashboard' => 'Dashboard',
+            'Navigation' => 'Navigation',
+            'Search Reports' => 'Rechercher un rapport',
+            'Profile' => 'Profil',
+            'Log out' => 'Se déconnecter',
+            'Settings' => 'Paramètres',
+            'Messages' => 'Messages',
+            'Now' => 'Maintenant',
+            'Create New Report' => 'Créer nouveau rapport',
+            'Vulnerabilities' => 'Vulnérabilités',
+            'Audited Client' => 'Clients enregistrés',
+            'Auditors' => 'Auditeurs',
+            'Report' => 'Rapport',
+            'Reports' => 'Rapports',
+            'Report Vulnerabilities' => 'Rapport de vulnérabilité',
+            'Vulns in database' => 'Base de données de vulnérabilités',
+            'Free Hacking reporting tool from ' => 'Générateur de rapport gratuit, créé par:',
+            'List of vulnerabilities' => 'Liste des vulnérabilités',
+            'List' => 'Liste',
+            'Description' => 'Description',
+            'Description image' => 'Description image',
+            'Criticality' => 'Criticité',
+            'Low' => 'Faible',
+            'Medium' => 'Moyen',
+            'High' => 'Elevé',
+            'Very High' => 'Très Elevé',
+            'Edit' => 'Editer',
+            'Remove' => 'Supprimer',
+            'Search vulnerabilities' => 'Rechercher des vulnérabilités',
+            'NIST calculator' => 'Calculatrice NIST',
+            'Edit Vulnerability' => 'Editer Vulnérabilité',
+            'Effort' => 'Effort',
+            'Audit section' => 'Audit section',
+            'Internal audit' => 'Audit interne',
+            'External audit' => 'Audit externe',
+            'Wifi audit' => 'Audit Wifi',
+            'Solution' => 'Solution',
+            'Recommendation for criticality table' => 'Recommandation pour le tableau de criticité',
+            'Add vulnerability' => 'Ajouter Vulnérabilité',
+            'Delete vulnerability' => 'Supprimer Vulnérabilité',
+            'Vulnerability removed from the system' => 'Vulnérabilité supprimée du système',
+            'Return' => 'Retour',
+            'Customers' => 'Clients',
+            'List of customers' => 'Liste de clients',
+            'Search customers' => 'Rechercher un client',
+            'Name' => 'Nom',
+            'Web page' => 'Page web',
+            'Logo' => 'Logo',
+            'Edit company' => 'Editer Entreprise',
+            'Links and subdomains' => 'Liens et sous-domaines',
+            'Domain' => 'Domaine',
+            'Email' => 'Courriel',
+            'Name and surname' => 'Nom et prénom',
+            'Phone' => 'Téléphone',
+            'Owner data' => 'Données du propriétaire',
+            'Organization' => 'organisation',
+            'Employee emails' => 'Courriels des employés',
+            'MX Records' => 'Enregistrement MX',
+            'Edit profile' => 'Editer profil',
+            'You have reached the search limit on your hunter.io plan' => 'Vous avez atteint la limite de recherches dans votre plan hunter.io',
+            'Add client' => 'Ajouter client',
+            'Your clients' => 'Tes clients',
+            'List of reports' => 'Liste des rapports',
+            'Search reports' => 'Rechercher des rapports',
+            'Report name' => 'Nom du rapport',
+            'State' => 'Etat',
+            'Date' => 'Date',
+            'Finalized' => 'Terminé',
+            'In process' => 'En cours',
+            'Add report' => 'Ajouter rapport',
+            'Delete company' => 'Supprimer entreprise',
+            'Company removed from the system' => 'Entreprise supprimée du système',
+            'Save this web in .mhtml format and open it in Word to edit the report!!' => 'Enregistrez cette page web au format .mhtml et ouvrez-la dans Word pour éditer le rapport !!',
+            'Document name' => 'Nom du document',
+            'Customer name' => 'Nom du client',
+            'Discharge date' => 'date de clôture',
+            'Edit report' => 'Editer rapport',
+            'Recommendations' => 'Recommandations',
+            'Recommendation' => 'Recommandation',
+            'Conclusions' => 'Conclusions',
+            'Proposals' => 'Propositions',
+            'Add' => 'Ajouter',
+            'Section' => 'Section',
+            'Save' => 'Enregistrer',
+            'Client name' => 'Nom du client',
+            'Overview report' => 'Générer le rapport',
+            'Delete report' => 'Supprimer le rapport',
+            'Report removed from the system' => 'Rapport supprimé du système',
+            'Recorded vulnerabilities' => 'Vulnérabilités enregistrées',
+            'Registered companies' => 'Clients enregistrés',
+            'Reports made' => 'Rapport réalisé',
+            'Last two reports' => 'Deux derniers rapports',
+            'Date:' => 'Date:',
+            'Vulnerabilities found' => 'Vulnérabilités trouvées',
+            'LEGAL WARNING' => 'Avertissement légal',
+            'This document contains confidential and proprietary information which is for the exclusive use of ' => 'Ce document contient des informations confidentielles et propriétaires destinées à un usage exclusif',
+            'Unauthorized reproduction or use of this document is strictly prohibited.' => 'Toute reproduction ou utilisation non autorisée de ce document est strictement interdite.',
+            'CONTROL DOCUMENT' => 'Contrôle du document',
+            'DOCUMENT:' => 'DOCUMENT:',
+            'NAME' => 'NOM:',
+            'AUTHOR:' => 'AUTHEUR',
+            'CUSTOMER:' => 'CLIENT',
+            'CONFIDENTIALITY STATEMENT' => 'DECLARATION DE CONFIDENTIALITE',
+            'This report contains information regarding possible security breaches of' => 'Ce rapport contient des informations relatives aux éventuelles failles de sécurité de',
+            'and their systems.' => 'et ses systèmes',
+            'recommends that special precautions be taken to' => 'recommande que des précautions spéciales soient prises pour',
+            ' protect the confidentiality of this document and the information contained in it.' => ' protéger la confidentialité de ce document et des informations qu\'il contient.',
+            'has maintained and secured a copy of this report for consultation by the' => 'a conservé et sécurisé une copie de ce rapport pour consultation par le',
+            'All other copies of the report have been rem' => 'Toutes les autres copies du rapport ont été rem',
+            'The security assessment' => 'L\'évaluation de la sécurité',
+            'it is an uncertain process, based on experiences, currently available information and known threats.' => 'est un processus incertain, basé sur les expériences, les informations actuellement disponibles et les menaces connues.',
+            'It must be understood that all information systems, by their nature, depend on human beings and are vulnerable in some degree.' => 'Il faut comprendre que tous les systèmes d\'information, par leur nature, dépendent des êtres humains et sont vulnérables dans une certaine mesure.',
+            'This report' => 'Ce rapport',
+            'may recommend that' => 'pourra recommander que',
+            'use certain software or hardware products manufactured' => 'utilise certains produits de logiciels ou de matériels fabriqués',
+            'or maintained by other providers. BlackStone bases these recommendations on of your previous experience with the capabilities of these products. However, Blackstone cannot and should not guarantee that any particular product will perform as advertised by the seller.' => 'ou maintenus par d\'autres fournisseurs. BlackStone base ces recommandations sur son expérience antérieure avec les capacités de ces produits. Cependant, BlackStone ne peut et ne doit pas garantir qu\'un produit particulier fonctionnera comme annoncé par le vendeur.',
+            'INDEX' => 'INDEX',
+            '(GENERATE INDEX WITH WORD)' => '(GENERER L\'INDEX AVEC WORD)',
+            'INTRODUCTION' => 'INTRODUCTION',
+            'During the tests, the activities that a real attacker would carry out are simulated, discovering the vulnerabilities, their level of risk, and generating recommendations that allow the client to carry out the remediation of these. Each section of this report details important aspects of how an attacker could use the vulnerability to compromise and gain unauthorized access to sensitive information. Are included In addition, guidelines that, when applied, will improve the levels of confidentiality, integrity and availability of the analyzed systems.' => 'Lors des tests, les activités qu\'un attaquant réel pourrait réaliser sont simulées, découvrant les vulnérabilités, leur niveau de risque, et générant des recommandations permettant au client de remédier à celles-ci. Dans chaque section de ce rapport, les aspects importants de la manière dont un attaquant pourrait exploiter la vulnérabilité pour compromettre et obtenir un accès non autorisé à des informations sensibles sont détaillés. Des directives sont également incluses, qui, une fois appliquées, amélioreront les niveaux de confidentialité, d\'intégrité et de disponibilité des systèmes analysés.',
+            'Vulnerability scans and ethical hacking tests were conducted by BlackStone\'s Red Team during the approved dates. The ethical hacking tests did not explicitly attempt to execute denial-of-service exploits and all of them were carried out without knowledge of users or passwords on the network.' => 'Les analyses de vulnérabilités et les tests de hacking éthique ont été réalisés par l\'équipe Red Team de BlackStone durant les dates approuvées. Les tests de hacking éthique n\'ont pas explicitement tenté d\'exécuter des exploits impliquant une déni de service et tous ont été réalisés sans connaissance des utilisateurs ou des mots de passe sur le réseau.',
+            'OBJECTIVE' => 'OBJECTIF',
+            'The objective of the security evaluation is to detect the existing security vulnerabilities in the analyzed systems in order to subsequently generate a report with the findings and recommendations that allow their remediation.' => 'L\'objectif de l\'évaluation de la sécurité est de détecter les vulnérabilités de sécurité existantes dans les systèmes analysés, afin de générer ensuite un rapport avec les résultats et les recommandations permettant la remédiation de celles-ci.',
+            'SCOPE' => 'PERIMETRE',
+            'The evaluation carried out has focused on the objectives approved in the scope of the contract, which establishes:' => 'L\'évaluation réalisée s\'est concentrée sur les objectifs approuvés dans le cadre du contrat, qui établit :',
+            'Description activities' => 'Description des activités',
+            'EXECUTIVE SUMMARY' => 'RESUME EXECUTIF',
+            'TEST RESULTS' => 'Résultat des tests',
+            'CONCLUSIONS' => 'CONCLUSIONS',
+            'RECOMMENDATIONS' => 'RECOMMANDATIONS',
+            'Infrastructure improvement proposals' => 'Propositions d\'amélioration de l\'infrastructure',
+            'Criticality table' => 'Tableau de criticité',
+            'DOCUMENT CONTROL' => 'CONTROLE DU DOCUMENT',
+            'Vulnerability' => 'Vulnérabilité',
+            'Amount' => 'Quantité',
+            'Percentage' => 'Pourcentage',
+            'Critics' => 'Critiques',
+            'Penetration Test Report for' => 'Rapport de test d\'intrusion pour',
+            'YOU CAN MAKE REPORTS ON AUDITS AND CERTIFICATION EXAMS WITH THE FREE REPORTING TOOL FOR KALI AND PARROT' => 'VOUS POUVEZ REALISER DES RAPPORTS D\'AUDIT ET DES EXAMENS DE CERTIFICATIONS AVEC L\'OUTIL GRATUIT DE RAPPORT POUR KALI ET PARROT',
+            'You have to capture a screenshot of this graphic to insert it into Word.' => 'Vous devez faire une capture d\'écran de ce graphique pour l\'insérer dans Word.'
+        ]
+    ];
 
-    //SYSTEM    if($sentencia == "Saved vulnerability" && $_SESSION['idioma'] == "ES"){ $sentencia = "Vulnerabilidad guardada";};
-    if($sentencia == "Edit asset" && $_SESSION['idioma'] == "ES"){ $sentencia = "Editar objetivo";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Editer Objectif";};
-    if($sentencia == "Objectives details" && $_SESSION['idioma'] == "ES"){ $sentencia = "Detalles de los objetivos";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Détails des Objectifs";};
-    if($sentencia == "At the moment we will have to manually insert a graphic or image." && $_SESSION['idioma'] == "ES"){ $sentencia = "Por el momento deberemos insertar manualmente un gráfico o imagen.";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Pour le moment nous devrons insérer manuellement un graphique ou une image";};
-    if($sentencia == "Delete" && $_SESSION['idioma'] == "ES"){ $sentencia = "Eliminar";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Supprimer";};
-    if($sentencia == "Vulnerability images" && $_SESSION['idioma'] == "ES"){ $sentencia = "Imágenes de vulnerabilidad";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Images de la vulnérabilité";};
-    if($sentencia == "Manage vulnerabilities" && $_SESSION['idioma'] == "ES"){ $sentencia = "Gestionar vulnerabilidades";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Gérer les vulnérabilités";};
-    if($sentencia == "Search Vulnerabilities..." && $_SESSION['idioma'] == "ES"){ $sentencia = "Buscar Vulnerabilidades...";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Chercher une vulnérabilité";};
-    if($sentencia == "Order" && $_SESSION['idioma'] == "ES"){ $sentencia = "Orden";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Ordre";};
-    if($sentencia == "Add vulns" && $_SESSION['idioma'] == "ES"){ $sentencia = "Añadir vulns";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Ajouter une vulnérabilité";};
-    if($sentencia == "Add image" && $_SESSION['idioma'] == "ES"){ $sentencia = "Añadir imagen";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Ajouter une image";};
-    if($sentencia == "Edit values" && $_SESSION['idioma'] == "ES"){ $sentencia = "Editar valores";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Editer les valeurs";};
-    if($sentencia == "Vulnerabilities associated with" && $_SESSION['idioma'] == "ES"){ $sentencia = "Vulnerabilidades asociadas a";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Vulnérabilités associées à";};
-    if($sentencia == "Are you interested in cybersecurity?" && $_SESSION['idioma'] == "ES"){ $sentencia = "Estás interesado en ciberseguridad?";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Es-tu intéressé par la cybersécurité ?";};
-    if($sentencia == "Go now" && $_SESSION['idioma'] == "ES"){ $sentencia = "Ver ahora";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Voir maintenant";};
-    if($sentencia == "Visit all my links!" && $_SESSION['idioma'] == "ES"){ $sentencia = "Visita todos mis links!";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Visite mes liens!";};
-    if($sentencia == "Report Objectives" && $_SESSION['idioma'] == "ES"){ $sentencia = "Objetivos de la auditoría";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Objectifs de l'audit";};
-    if($sentencia == "Add objective" && $_SESSION['idioma'] == "ES"){ $sentencia = "Añadir objetivo";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Ajouter Objectif";};
-    if($sentencia == "Add objectives" && $_SESSION['idioma'] == "ES"){ $sentencia = "Añadir objetivos";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Ajouter des Objectifs";};
-    if($sentencia == "Objectives" && $_SESSION['idioma'] == "ES"){ $sentencia = "Objetivos";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Objectifs";};
-    if($sentencia == "Deadline" && $_SESSION['idioma'] == "ES"){ $sentencia = "Fecha de entrega";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Date Limite";};
-    if($sentencia == "Saved vulnerability" && $_SESSION['idioma'] == "ES"){ $sentencia = "Vulnerabilidad guardada";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Vulnérabilité sauvegardée";};
-    if($sentencia == "Account settings" && $_SESSION['idioma'] == "ES"){ $sentencia = "Ajustes de cuenta";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Paramètres de compte";};
-    if($sentencia == "System Member" && $_SESSION['idioma'] == "ES"){ $sentencia = "Usuario de sistema";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Utilisateur";};
-    if($sentencia == "Dashboard" && $_SESSION['idioma'] == "ES"){ $sentencia = "Dashboard";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Dashboard";};
-    if($sentencia == "Navigation" && $_SESSION['idioma'] == "ES"){ $sentencia = "Navegación";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Navigation";};
-    if($sentencia == "Search Reports" && $_SESSION['idioma'] == "ES"){ $sentencia = "Buscar Informes";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Rechercher un rapport";};
-    if($sentencia == "Profile" && $_SESSION['idioma'] == "ES"){ $sentencia = "Perfil";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Profil";};
-    if($sentencia == "Log out" && $_SESSION['idioma'] == "ES"){ $sentencia = "Cerrar sesión";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Se déconnecter";};
-    if($sentencia == "Settings" && $_SESSION['idioma'] == "ES"){ $sentencia = "Ajustes";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Paramètres";};
-    if($sentencia == "Messages" && $_SESSION['idioma'] == "ES"){ $sentencia = "Mensajes";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Messages";};
-    if($sentencia == "Now" && $_SESSION['idioma'] == "ES"){ $sentencia = "Ahora";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Maintenant";};
-    if($sentencia == "Create New Report" && $_SESSION['idioma'] == "ES"){ $sentencia = "Crear Nuevo Informe";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Créer nouveau rapport";};
-    if($sentencia == "Vulnerabilities" && $_SESSION['idioma'] == "ES"){ $sentencia = "Vulnerabilidades";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Vulnérabilités";};
-    if($sentencia == "Audited Client" && $_SESSION['idioma'] == "ES"){ $sentencia = "Clientes registrados";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Clients enregistrés";};
-    if($sentencia == "Auditors" && $_SESSION['idioma'] == "ES"){ $sentencia = "Auditores";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Auditeurs";};
-    if($sentencia == "Report" && $_SESSION['idioma'] == "ES"){ $sentencia = "Informe";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Rapport";};
-    if($sentencia == "Reports" && $_SESSION['idioma'] == "ES"){ $sentencia = "Informes";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Rapports";};
-    if($sentencia == "Report Vulnerabilities" && $_SESSION['idioma'] == "ES"){ $sentencia = "Vulnerabilidades reportadas";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Rapport de vulnérabilité";};
-    if($sentencia == "Vulns in database" && $_SESSION['idioma'] == "ES"){ $sentencia = "Vulns en base de datos";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Base de données de vulnérabilités";};
-    if($sentencia == "Free Hacking reporting tool from " && $_SESSION['idioma'] == "ES"){ $sentencia = "Herramienta gratuita de reporting, creada por: ";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Générateur de rapport gratuit, créé par:";};
-    if($sentencia == "List of vulnerabilities" && $_SESSION['idioma'] == "ES"){ $sentencia = "Listado de vulnerabilidades";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Liste des vulnérabilités";};
-    if($sentencia == "List" && $_SESSION['idioma'] == "ES"){ $sentencia = "Listado";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Liste";};
-    if($sentencia == "Description" && $_SESSION['idioma'] == "ES"){ $sentencia = "Descripción";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Description";};
-    if($sentencia == "Description image" && $_SESSION['idioma'] == "ES"){ $sentencia = "Descripción de la imágen";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Description image";};
-    if($sentencia == "Criticality" && $_SESSION['idioma'] == "ES"){ $sentencia = "Criticidad";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Criticité";};
-    if($sentencia == "Low" && $_SESSION['idioma'] == "ES"){ $sentencia = "Baja";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Faible";};
-    if($sentencia == "Medium" && $_SESSION['idioma'] == "ES"){ $sentencia = "Media";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Moyen";};
-    if($sentencia == "High" && $_SESSION['idioma'] == "ES"){ $sentencia = "Alta";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Elevé";};
-    if($sentencia == "Very High" && $_SESSION['idioma'] == "ES"){ $sentencia = "Muy Alta";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Très Elevé";};
-    if($sentencia == "Edit" && $_SESSION['idioma'] == "ES"){ $sentencia = "Editar";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Editer";};
-    if($sentencia == "Remove" && $_SESSION['idioma'] == "ES"){ $sentencia = "Eliminar";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Supprimer";};
-    if($sentencia == "Search vulnerabilities" && $_SESSION['idioma'] == "ES"){ $sentencia = "Buscar vulnerabilidades";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Rechercher des vulnérabilités";};
-    if($sentencia == "NIST calculator" && $_SESSION['idioma'] == "ES"){ $sentencia = "Calculadora NIST";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Calculatrice NIST";};
-    if($sentencia == "Edit Vulnerability" && $_SESSION['idioma'] == "ES"){ $sentencia = "Editar vulnerabilidad";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Editer Vulnérabilité";};
-    if($sentencia == "Effort" && $_SESSION['idioma'] == "ES"){ $sentencia = "Esfuerzo";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Effort";};
-    if($sentencia == "Audit section" && $_SESSION['idioma'] == "ES"){ $sentencia = "Sección auditoria";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Audit section";};
-    if($sentencia == "Internal audit" && $_SESSION['idioma'] == "ES"){ $sentencia = "Auditoría interna";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Audit interne";};
-    if($sentencia == "External audit" && $_SESSION['idioma'] == "ES"){ $sentencia = "Auditoría externa";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Audit externe";};
-    if($sentencia == "Wifi audit" && $_SESSION['idioma'] == "ES"){ $sentencia = "Auditoría wifi";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Audit Wifi";};
-    if($sentencia == "Solution" && $_SESSION['idioma'] == "ES"){ $sentencia = "Solución";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Solution";};
-    if($sentencia == "Recommendation for criticality table" && $_SESSION['idioma'] == "ES"){ $sentencia = "Recomendación para tabla de criticidad";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Editer Objectif";};
-    if($sentencia == "Add vulnerability" && $_SESSION['idioma'] == "ES"){ $sentencia = "Añadir vulnerabilidad";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Recommandation pour le tableau de criticité";};
-    if($sentencia == "Delete vulnerability" && $_SESSION['idioma'] == "ES"){ $sentencia = "Eliminar vulnerabilidad";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Supprimer Vulnérabilité";};
-    if($sentencia == "Vulnerability removed from the system" && $_SESSION['idioma'] == "ES"){ $sentencia = "Vulnerabilidad eliminada del sistema";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Vulnérabilité supprimée du système";};
-    if($sentencia == "Return" && $_SESSION['idioma'] == "ES"){ $sentencia = "Volver";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Retour";};
-    if($sentencia == "Customers" && $_SESSION['idioma'] == "ES"){ $sentencia = "Clientes";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Clients";};
-    if($sentencia == "List of customers" && $_SESSION['idioma'] == "ES"){ $sentencia = "Listado de clientes";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Liste de clients";};
-    if($sentencia == "Search customers" && $_SESSION['idioma'] == "ES"){ $sentencia = "Buscar clientes";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Rechercher un client";};
-    if($sentencia == "Name" && $_SESSION['idioma'] == "ES"){ $sentencia = "Nombre";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Nom";};
-    if($sentencia == "Web page" && $_SESSION['idioma'] == "ES"){ $sentencia = "Página web";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Page web";};
-    if($sentencia == "Logo" && $_SESSION['idioma'] == "ES"){ $sentencia = "Logo";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Logo";};
-    if($sentencia == "Edit company" && $_SESSION['idioma'] == "ES"){ $sentencia = "Editar empresa";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Editer Entreprise";};
-    if($sentencia == "Links and subdomains" && $_SESSION['idioma'] == "ES"){ $sentencia = "Links y subdominios";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Liens et sous-domaines";};
-    if($sentencia == "Domain" && $_SESSION['idioma'] == "ES"){ $sentencia = "Dominio";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Domaine";};
-    if($sentencia == "Email" && $_SESSION['idioma'] == "ES"){ $sentencia = "Correo";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Courriel";};
-    if($sentencia == "Name and surname" && $_SESSION['idioma'] == "ES"){ $sentencia = "Nombre y apellidos";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Nom et prénom";};
-    if($sentencia == "Phone" && $_SESSION['idioma'] == "ES"){ $sentencia = "Teléfono";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Téléphone";};
-    if($sentencia == "Owner data" && $_SESSION['idioma'] == "ES"){ $sentencia = "Datos del propietario";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Données du propriétaire";};
-    if($sentencia == "Organization" && $_SESSION['idioma'] == "ES"){ $sentencia = "Organización";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "organisation";};
-    if($sentencia == "Employee emails" && $_SESSION['idioma'] == "ES"){ $sentencia = "Correos de empleados";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Courriels des employés";};
-    if($sentencia == "MX Records" && $_SESSION['idioma'] == "ES"){ $sentencia = "Registros MX";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Enregistrement MX";};
-    if($sentencia == "Edit profile" && $_SESSION['idioma'] == "ES"){ $sentencia = "Editar perfil";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Editer profil";};
-    if($sentencia == "You have reached the search limit on your hunter.io plan" && $_SESSION['idioma'] == "ES"){ $sentencia = "Ha alcanzado el límite de búsquedas en su plan de hunter.io";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Vous avez atteint la limite de recherches dans votre plan hunter.io";};
-    if($sentencia == "Add client" && $_SESSION['idioma'] == "ES"){ $sentencia = "Añadir cliente";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Ajouter client";};
-    if($sentencia == "Your clients" && $_SESSION['idioma'] == "ES"){ $sentencia = "Tus clientes";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Tes clients";};
-    if($sentencia == "List of reports" && $_SESSION['idioma'] == "ES"){ $sentencia = "Lista de informes";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Liste des rapports";};
-    if($sentencia == "Search reports" && $_SESSION['idioma'] == "ES"){ $sentencia = "Buscar informes";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Rechercher des rapports";};
-    if($sentencia == "Report name" && $_SESSION['idioma'] == "ES"){ $sentencia = "Nombre del informe";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Nom du rapport";};
-    if($sentencia == "State" && $_SESSION['idioma'] == "ES"){ $sentencia = "Estado";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Etat";};
-    if($sentencia == "Date" && $_SESSION['idioma'] == "ES"){ $sentencia = "Fecha";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Date";};
-    if($sentencia == "Finalized" && $_SESSION['idioma'] == "ES"){ $sentencia = "Terminado";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Terminé";};
-    if($sentencia == "In process" && $_SESSION['idioma'] == "ES"){ $sentencia = "En proceso";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "En cours";};
-    if($sentencia == "En proceso" && $_SESSION['idioma'] == "EN"){ $sentencia = "In process";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "En cours";};
-    if($sentencia == "Terminado" && $_SESSION['idioma'] == "EN"){ $sentencia = "Finalized";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Terminé";};
-    if($sentencia == "Add report" && $_SESSION['idioma'] == "ES"){ $sentencia = "Añadir informe";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Ajouter rapport";};
-    if($sentencia == "Delete company" && $_SESSION['idioma'] == "ES"){ $sentencia = "Eliminar empresa";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Supprimer entreprise";};
-    if($sentencia == "Company removed from the system" && $_SESSION['idioma'] == "ES"){ $sentencia = "Empresa eliminada del sistema";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Entreprise supprimée du système";};
-    if($sentencia == "Save this web in .mhtml format and open it in Word to edit the report!!" && $_SESSION['idioma'] == "ES"){ $sentencia = "Guarda esta web en formato .mhtml y abrela en Word para editar el informe!!";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Enregistrez cette page web au format .mhtml et ouvrez-la dans Word pour éditer le rapport !!";};
-    if($sentencia == "Document name" && $_SESSION['idioma'] == "ES"){ $sentencia = "Nombre del documento";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Nom du document";};
-    if($sentencia == "Customer name" && $_SESSION['idioma'] == "ES"){ $sentencia = "Nombre cliente";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Nom du client";};
-    if($sentencia == "Discharge date" && $_SESSION['idioma'] == "ES"){ $sentencia = "Fecha de alta";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "date de clôture";};
-    if($sentencia == "Edit report" && $_SESSION['idioma'] == "ES"){ $sentencia = "Editar informe";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Editer rapport";};
-    if($sentencia == "State" && $_SESSION['idioma'] == "ES"){ $sentencia = "Estado";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Etat";};
-    if($sentencia == "Recommendations" && $_SESSION['idioma'] == "ES"){ $sentencia = "Recomendaciones";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Recommandations";};
-    if($sentencia == "Recommendation" && $_SESSION['idioma'] == "ES"){ $sentencia = "Recomendación";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Recommandation";};
-    if($sentencia == "Conclusions" && $_SESSION['idioma'] == "ES"){ $sentencia = "Conclusiones";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Conclusions";};
-    if($sentencia == "Proposals" && $_SESSION['idioma'] == "ES"){ $sentencia = "Propuestas";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Propositions";};
-    if($sentencia == "Add" && $_SESSION['idioma'] == "ES"){ $sentencia = "Añadir";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Ajouter";};
-    if($sentencia == "Description" && $_SESSION['idioma'] == "ES"){ $sentencia = "Descripción";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Description";};
-    if($sentencia == "Section" && $_SESSION['idioma'] == "ES"){ $sentencia = "Sección";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Section";};
-    if($sentencia == "Save" && $_SESSION['idioma'] == "ES"){ $sentencia = "Guardar";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Enregistrer";};
-    if($sentencia == "Client name" && $_SESSION['idioma'] == "ES"){ $sentencia = "Nombre de cliente";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Nom du client";};
-    if($sentencia == "Overview report" && $_SESSION['idioma'] == "ES"){ $sentencia = "Generar informe";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Générer le rapport";};
-    if($sentencia == "Delete report" && $_SESSION['idioma'] == "ES"){ $sentencia = "Eliminar informe";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Supprimer le rapport";};
-    if($sentencia == "Report removed from the system" && $_SESSION['idioma'] == "ES"){ $sentencia = "Informe eliminado del sistema";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Rapport supprimé du système";};
-    if($sentencia == "Recorded vulnerabilities" && $_SESSION['idioma'] == "ES"){ $sentencia = "Vulnerabilidades registradas";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Vulnérabilités enregistrées";};
-    if($sentencia == "Registered companies" && $_SESSION['idioma'] == "ES"){ $sentencia = "Clientes dados de alta";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Clients enregistrés";};
-    if($sentencia == "Reports made" && $_SESSION['idioma'] == "ES"){ $sentencia = "Informes realizados";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Rapport réalisé";};
-    if($sentencia == "Last two reports" && $_SESSION['idioma'] == "ES"){ $sentencia = "Dos últimos informes";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Deux derniers rapports";};
-    if($sentencia == "Date:" && $_SESSION['idioma'] == "ES"){ $sentencia = "Fecha:";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Date:";};
-    if($sentencia == "Vulnerabilities found" && $_SESSION['idioma'] == "ES"){ $sentencia = "Vulnerabilidades encontradas";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Vulnérabilités trouvées";};
-
-
-    //REPORT
-    if($sentencia == "LEGAL WARNING" && $_SESSION['idioma'] == "ES"){ $sentencia = "AVISO LEGAL";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Avertissement légal";};
-    if($sentencia == "This document contains confidential and proprietary information which is for the exclusive use of " && $_SESSION['idioma'] == "ES"){ $sentencia = "Este documento contiene información confidencial y propietaria la cual es de uso exclusivo de ";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Ce document contient des informations confidentielles et propriétaires destinées à un usage exclusif";};
-    if($sentencia == "Unauthorized reproduction or use of this document is strictly prohibited." && $_SESSION['idioma'] == "ES"){ $sentencia = "La reproducción o uso no autorizado de este documento está totalmente prohibido.";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Toute reproduction ou utilisation non autorisée de ce document est strictement interdite.";};
-    if($sentencia == "CONTROL DOCUMENT" && $_SESSION['idioma'] == "ES"){ $sentencia = "CONTROL DE DOCUMENTO";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Contrôle du document";};
-    if($sentencia == "DOCUMENT:" && $_SESSION['idioma'] == "ES"){ $sentencia = "DOCUMENTO:";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "DOCUMENT:";};
-    if($sentencia == "NAME" && $_SESSION['idioma'] == "ES"){ $sentencia = "NOMBRE";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "NOM:";};
-    if($sentencia == "AUTHOR:" && $_SESSION['idioma'] == "ES"){ $sentencia = "AUTOR:";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "AUTHEUR";};
-    if($sentencia == "CUSTOMER:" && $_SESSION['idioma'] == "ES"){ $sentencia = "CLIENTE:";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "CLIENT";};
-    if($sentencia == "CONFIDENTIALITY STATEMENT" && $_SESSION['idioma'] == "ES"){ $sentencia = "DECLARACIÓN DE CONFIDENCIALIDAD";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "DECLARATION DE CONFIDENTIALITE";};
-    if($sentencia == "This report contains information regarding possible security breaches of " && $_SESSION['idioma'] == "ES"){ $sentencia = "Este informe contiene la información relativa a las posibles brechas de seguridad de ";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Ce rapport contient des informations relatives aux éventuelles failles de sécurité de";};
-    if($sentencia == "and their systems." && $_SESSION['idioma'] == "ES"){ $sentencia = "y sus sistemas.";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "et ses systèmes";};
-    if($sentencia == "recommends that special precautions be taken to" && $_SESSION['idioma'] == "ES"){ $sentencia = "recomienda que sean tomadas precauciones especiales para";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "recommande que des précautions spéciales soient prises pour";};
-    if($sentencia == " protect the confidentiality of this document and the information contained in it." && $_SESSION['idioma'] == "ES"){ $sentencia = " proteger la confidencialidad de este documento y de la información contenida en él.";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = " protéger la confidentialité de ce document et des informations qu'il contient.";};
-    if($sentencia == "has maintained and secured a copy of this report for consultation by the" && $_SESSION['idioma'] == "ES"){ $sentencia = "ha mantenido y asegurado una copia de este informe para consulta por parte del";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "a conservé et sécurisé une copie de ce rapport pour consultation par le";};
-    if($sentencia == "All other copies of the report have been delivered to " && $_SESSION['idioma'] == "ES"){ $sentencia = "Todas las demás copias del informe se han entregado a ";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Toutes les autres copies du rapport ont été remises à ";};
-    if($sentencia == "The security assessment" && $_SESSION['idioma'] == "ES"){ $sentencia = "La evaluación de la seguridad";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "L'évaluation de la sécurité";};
-    if($sentencia == "it is an uncertain process, based on experiences, currently available information and known threats." && $_SESSION['idioma'] == "ES"){ $sentencia = "es un proceso incierto, basado en las experiencias, la información actualmente disponible y las amenazas conocidas.";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "est un processus incertain, basé sur les expériences, les informations actuellement disponibles et les menaces connues.";};
-    if($sentencia == "It must be understood that all information systems, by their nature, depend on human beings and are vulnerable in some degree." && $_SESSION['idioma'] == "ES"){ $sentencia = "Se debe entender que todos los sistemas de información, por su naturaleza dependen de los seres humanos y son vulnerables en cierto grado.";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Il faut comprendre que tous les systèmes d'information, par leur nature, dépendent des êtres humains et sont vulnérables dans une certaine mesure.";};
-    if($sentencia == "This report" && $_SESSION['idioma'] == "ES"){ $sentencia = "Este informe";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Ce rapport";};
-    if($sentencia == "may recommend that" && $_SESSION['idioma'] == "ES"){ $sentencia = "podrá recomendar que";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "pourra recommander que";};
-    if($sentencia == "use certain software or hardware products manufactured" && $_SESSION['idioma'] == "ES"){ $sentencia = "utilice ciertos productos de software o hardware fabricados";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "utilise certains produits de logiciels ou de matériels fabriqués";};
-    if($sentencia == "or maintained by other providers. BlackStone bases these recommendations on of your previous experience with the capabilities of these products. However, Blackstone cannot and should not guarantee that any particular product will perform as advertised by the seller." && $_SESSION['idioma'] == "ES"){ $sentencia = "o mantenidas por otros proveedores. BlackStone  basa estas recomendaciones a partir de su experiencia previa con las capacidades de estos productos. Sin embargo, BlackStone no puede y no debe garantizar que un determinado producto funcionará según lo anunciado por el vendedor. ";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "ou maintenus par d'autres fournisseurs. BlackStone base ces recommandations sur son expérience antérieure avec les capacités de ces produits. Cependant, BlackStone ne peut et ne doit pas garantir qu'un produit particulier fonctionnera comme annoncé par le vendeur.";};
-    if($sentencia == "INDEX" && $_SESSION['idioma'] == "ES"){ $sentencia = "ÍNDICE";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "INDEX";};
-    if($sentencia == "(GENERATE INDEX WITH WORD)" && $_SESSION['idioma'] == "ES"){ $sentencia = "(GENERAR INDICE CON WORD)";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "(GENERER L'INDEX AVEC WORD)";};
-    if($sentencia == "INTRODUCTION" && $_SESSION['idioma'] == "ES"){ $sentencia = "INTRODUCCIÓN";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "INTRODUCTION";};
-    if($sentencia == "During the tests, the activities that a real attacker would carry out are simulated, discovering the vulnerabilities, their level of risk, and generating recommendations that allow the client to carry out the remediation of these. Each section of this report details important aspects of how an attacker could use the vulnerability to compromise and gain unauthorized access to sensitive information. Are included In addition, guidelines that, when applied, will improve the levels of confidentiality, integrity and availability of the analyzed systems." && $_SESSION['idioma'] == "ES"){ $sentencia = "Durante las pruebas se simulan las actividades que realizaría un atacante real, descubriendo las vulnerabilidades, su nivel de riesgo, y generando recomendaciones que permitan al cliente realizar la remediación de estas. En cada sección de este informe se detallan los aspectos importantes de la forma en que un atacante podría utilizar la vulnerabilidad para comprometer y obtener acceso no autorizado a información sensible. Se incluyen además directrices que al ser aplicadas mejoraran los niveles de confidencialidad, integridad y disponibilidad de los sistemas analizados. ";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Lors des tests, les activités qu'un attaquant réel pourrait réaliser sont simulées, découvrant les vulnérabilités, leur niveau de risque, et générant des recommandations permettant au client de remédier à celles-ci. Dans chaque section de ce rapport, les aspects importants de la manière dont un attaquant pourrait exploiter la vulnérabilité pour compromettre et obtenir un accès non autorisé à des informations sensibles sont détaillés. Des directives sont également incluses, qui, une fois appliquées, amélioreront les niveaux de confidentialité, d'intégrité et de disponibilité des systèmes analysés.";};
-    if($sentencia == "Vulnerability scans and ethical hacking tests were conducted by BlackStone's Red Team during the approved dates. The ethical hacking tests did not explicitly attempt to execute denial-of-service exploits and all of them were carried out without knowledge of users or passwords on the network." && $_SESSION['idioma'] == "ES"){ $sentencia = "Los análisis de vulnerabilidades y pruebas de hacking ético fueron realizados por el equipo de Red Team de BlackStone  durante las fechas aprobadas. Las pruebas de hacking ético no intentaron explícitamente la ejecución de exploits que implicaran denegación de servicio y todas ellas se realizaron sin conocimiento de usuarios o contraseñas en la red.";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Les analyses de vulnérabilités et les tests de hacking éthique ont été réalisés par l'équipe Red Team de BlackStone durant les dates approuvées. Les tests de hacking éthique n'ont pas explicitement tenté d'exécuter des exploits impliquant une déni de service et tous ont été réalisés sans connaissance des utilisateurs ou des mots de passe sur le réseau.";};
-    if($sentencia == "OBJECTIVE" && $_SESSION['idioma'] == "ES"){ $sentencia = "OBJETIVO";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "OBJECTIF";};
-    if($sentencia == "The objective of the security evaluation is to detect the existing security vulnerabilities in the analyzed systems in order to subsequently generate a report with the findings and recommendations that allow their remediation." && $_SESSION['idioma'] == "ES"){ $sentencia = "El objetivo de la evaluación de seguridad es detectar las vulnerabilidades de seguridad existentes en los sistemas analizados para posteriormente generar un informe con los hallazgos y recomendaciones que permitan la remediación de estas.";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "L'objectif de l'évaluation de la sécurité est de détecter les vulnérabilités de sécurité existantes dans les systèmes analysés, afin de générer ensuite un rapport avec les résultats et les recommandations permettant la remédiation de celles-ci.";};
-    if($sentencia == "SCOPE" && $_SESSION['idioma'] == "ES"){ $sentencia = "ALCANCE";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "PERIMETRE";};
-    if($sentencia == "The evaluation carried out has focused on the objectives approved in the scope of the contract, which establishes:" && $_SESSION['idioma'] == "ES"){ $sentencia = "La evaluación realizada se ha centrado en los objetivos aprobados en el alcance del contrato, en el cual se establece:";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "L'évaluation réalisée s'est concentrée sur les objectifs approuvés dans le cadre du contrat, qui établit :";};
-    if($sentencia == "Description activities" && $_SESSION['idioma'] == "ES"){ $sentencia = "Descripción de actividades";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Description des activités";};
-    if($sentencia == "EXECUTIVE SUMMARY" && $_SESSION['idioma'] == "ES"){ $sentencia = "RESUMEN EJECUTIVO";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "RESUME EXECUTIF";};
-    if($sentencia == "TEST RESULTS" && $_SESSION['idioma'] == "ES"){ $sentencia = "RESULTADO DE LAS PRUEBAS";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Résultat des tests";};
-    if($sentencia == "CONCLUSIONS" && $_SESSION['idioma'] == "ES"){ $sentencia = "CONCLUSIONES";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "CONCLUSIONS";};
-    if($sentencia == "RECOMMENDATIONS" && $_SESSION['idioma'] == "ES"){ $sentencia = "RECOMENDACIONES";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "RECOMMANDATIONS";};
-    if($sentencia == "Infrastructure improvement proposals" && $_SESSION['idioma'] == "ES"){ $sentencia = "Propuestas de mejora sobre la infraestructura";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Propositions d'amélioration de l'infrastructure";};
-    if($sentencia == "Criticality table" && $_SESSION['idioma'] == "ES"){ $sentencia = "Tabla de criticidad";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Tableau de criticité";};
-    if($sentencia == "Recommendation" && $_SESSION['idioma'] == "ES"){ $sentencia = "Recomendación";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Recommandation";};
-    if($sentencia == "DOCUMENT CONTROL" && $_SESSION['idioma'] == "ES"){ $sentencia = "CONTROL DE DOCUMENTO";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "CONTROLE DU DOCUMENT";};
-    if($sentencia == "Vulnerability" && $_SESSION['idioma'] == "ES"){ $sentencia = "vulnerabilidad";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Vulnérabilité";};
-    if($sentencia == "Amount" && $_SESSION['idioma'] == "ES"){ $sentencia = "Cantidad";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Quantité";};
-    if($sentencia == "Percentage" && $_SESSION['idioma'] == "ES"){ $sentencia = "Porcentaje";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Pourcentage";};
-    if($sentencia == "Critics" && $_SESSION['idioma'] == "ES"){ $sentencia = "Críticas";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Critiques";};
-    if($sentencia == "Penetration Test Report for" && $_SESSION['idioma'] == "ES"){ $sentencia = "Informe de Pentesting para";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Rapport de test d'intrusion pour";};
-    if($sentencia == "YOU CAN MAKE REPORTS ON AUDITS AND CERTIFICATION EXAMS WITH THE FREE REPORTING TOOL FOR KALI AND PARROT" && $_SESSION['idioma'] == "ES"){ $sentencia = "PUEDES REALIZAR INFORMES DE AUDITORÍAS Y EXÁMENES DE CERTIFICACIONES CON LA HERRAMIENTA GRATUITA DE REPORTING PARA KALI Y PARROT";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "VOUS POUVEZ REALISER DES RAPPORTS D'AUDIT ET DES EXAMENS DE CERTIFICATIONS AVEC L'OUTIL GRATUIT DE RAPPORT POUR KALI ET PARROT";};
-
-
-    if($sentencia == "You have to capture a screenshot of this graphic to insert it into Word." && $_SESSION['idioma'] == "ES"){ $sentencia = "Tienes que capturar pantalla de este gráfico para insertarlo dentro del Word.";} elseif ($_SESSION['idioma'] == "FR"){ $sentencia = "Vous devez faire une capture d'écran de ce graphique pour l'insérer dans Word.";};
-
-    return $sentencia;
-};
-
+    $lang = isset($_SESSION['idioma']) ? $_SESSION['idioma'] : 'EN';
+    return isset($translations[$lang][$sentencia]) ? $translations[$lang][$sentencia] : $sentencia;
+}
 ?>
