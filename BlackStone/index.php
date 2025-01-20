@@ -60,7 +60,7 @@ $section = "dashboard";
               </li>
             </ul>
             <ul class="navbar-nav navbar-nav-right">
-              <li class="nav-item dropdown d-none d-lg-block">
+              <li class="nav-item dropdown">
                 <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown" aria-expanded="false" href="insertar_informe.php">+ <?php echo lang("Create New Report");?> </a>
               </li>
               <li class="nav-item dropdown border-left">

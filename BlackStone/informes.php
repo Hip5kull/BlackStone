@@ -61,7 +61,7 @@ $section = "reports";
               </li>
             </ul>
             <ul class="navbar-nav navbar-nav-right">
-              <li class="nav-item dropdown d-none d-lg-block">
+              <li class="nav-item dropdown">
                 <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown" aria-expanded="false" href="insertar_informe.php">+ <?php echo lang("Add report");?> </a>
               </li>
               <li class="nav-item dropdown border-left">
